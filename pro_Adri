@@ -1,0 +1,9 @@
+jmeno = input("zadej svoje jméno: ")
+if jmeno == ("Adri"):
+    print("Ahoj Adri")
+else:
+    print("Ahoj NeAdri")
+
+seznam = ["Adri", "Jáchym"]
+print(seznam[0])
+

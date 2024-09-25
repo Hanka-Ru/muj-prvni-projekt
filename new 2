@@ -1,0 +1,4 @@
+data = ["Python", "SQL", "Datové modelování", "Tableau"]
+with open("predmety.txt", "w", encoding="utf-8") as soubor:
+    for radek in data:
+        soubor.write(radek)

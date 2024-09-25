@@ -1,0 +1,27 @@
+znamky = [1, 3, 2, 1, 1, 2]
+for z in znamky:
+    print(z)
+
+jmena = ['petr', 'pavel', 'jitka', 'jana']
+for jmeno in jmena:
+    mail = jmeno + '@gmail.com'
+    print(mail)
+
+soucet = 0
+cisla = [2, 4, -1, 50, 0, 42, 3]
+for cislo in cisla:
+    soucet = soucet + cislo
+print("Součet:", soucet)
+
+venecky = [1, 2, 4, 1, 6, 0, 1] 
+venecky[:3]
+
+inzerat = "TechStream"
+inzerat_novy = inzerat.replace("TechStream", "NextGen Innovations")
+print(inzerat_novy)
+
+jen_cisla = "10"
+if jen_cisla.isdecimal():
+    print("Řetězec obsahuje pouze číslice.")
+else:
+    print("Řetězec obsahuje i jiné znaky než číslice.")
