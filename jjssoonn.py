@@ -28,15 +28,54 @@ slova nezačínají, tak ve výstupu toto písmeno nebude. Seřaďte tyto seznam
 aby i klíče ve výstupním JSON souboru byly seřazeny a data byla odsazena čtyřmi mezerami pro 
 lepší čitelnost člověkem."""
 
+# Vytvořím si prázdný slovník, do kterého budu vytvářet požadovaný výstup
+# Otevřu si vstupní soubor a budu ho načítat v cyklu po řádcích
+# Zbavím se znaku pro nový řádek v každém slově
+# Zjistím si první písmeno slova
+# Pokud písmeno není klíčem slovníku, tak tento záznam vytvořím a jako hodnotu vložím seznam s tímto slovem
+# Jinak slovo připojím na konec existujícího seznamu slov
+# Po zpracování celého vstupu seřadím seznamy slov na všech klíčích
+# Výstupní slovník zapíšu do souboru ve formátu JSON
+# V dokumentaci musím najít, jak zajistím, aby byl výstup hezky odsazovaný o 4 mezery a klíče slovníku byly seřazené
+
+import json
+
 result = {}
 
 with open('words.txt', encoding='utf-8') as file:
-    words_text = file.read()
+    for row in file:
+        word = row.strip()
+        first_letter = word[0]
 
-words = words_text.split()
+        if first_letter not in result:
+            result[first_letter] = [word]
+        else:
+            result[first_letter].append(word)
 
-s
+# seradime slova
+for letter, words in result.items():
+    words.sort()
 
+with open('sorted_words.json', mode='w', encoding='utf-8') as file:
+    json.dump(result, file, ensure_ascii=False, indent=4, sort_keys=True)
 
+import requests
+
+response = requests.get('https://api.kodim.cz/python-data/people')
+data = response.json()
+
+print(len(data))
+clovek = data[0]
+print(clovek.keys())
+
+num_genders = {}
+for person in data:
+    gender = person['gender']
+    if gender not in num_genders:
+        num_genders[gender] = 1
+    else:
+        num_genders[gender] += 1
+
+print(num_genders)
   
     

@@ -19,3 +19,4 @@ seznam_cisel = [3, 2, 9, 2]
 for cislo in seznam_cisel:
     if cislo % 2 == 0:
             print(cislo)
+

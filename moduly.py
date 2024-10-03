@@ -9,3 +9,5 @@ cisla = [2, 4, 5, 9]
 prumer = statistics.mean(cisla)
 median = statistics.median(cisla)
 print(median)
+
+import pandas
